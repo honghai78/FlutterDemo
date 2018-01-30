@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../routes/routes.dart';
-import './TabBlue.dart';
-import './TabEco.dart';
+import 'package:flutter_app_demo/app/main/BlueTab/TabBlue.dart';
+import 'package:flutter_app_demo/app/main/EcoTab/TabEco.dart';
+import './BlueTab/BlueObject.dart';
 const String _explanatoryText =
     "When the Scaffold's floating action button changes, the new button fades and "
     'turns into view. In this demo, changing tabs can cause the app to be rebuilt '
@@ -95,7 +96,12 @@ bool isShow;
 
   Widget buildTabView(_Page page) {
     if(page.key == 0){
-      return new TabBlue();
+      return new TabBlue(product:
+          [
+          new BlueObject('Eggs','assets/person.png',false),
+          new BlueObject('Flour','assets/person.png',false),
+          new BlueObject('Chocolate chips','assets/person.png',false),
+          ]);
     }
     else {
       return new TabEco(label: page.label, labelColor: page.labelColor);
