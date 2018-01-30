@@ -1,6 +1,6 @@
 import 'package:flutter_app_demo/routes/RoutesObject.dart';
 import '../app/AddScreen.dart';
-import '../app/MainScreen.dart';
+import 'package:flutter_app_demo/app/main/MainScreen.dart';
 import '../app/NotFoundScreen.dart';
 class RoutesConfig {
   static RoutesObject ADD_SCREEN = new RoutesObject('/AddScreen', new AddScreen());

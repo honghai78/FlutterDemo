@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 class RoutesObject {
   String name;
-  StatelessWidget screen;
+  Widget screen;
   RoutesObject(this.name, this.screen);
 }
