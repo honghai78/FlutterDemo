@@ -6,7 +6,6 @@ library stocks;
 
 import 'package:flutter/material.dart';
 import 'routes/routes.dart';
-import 'package:flutter_flux/flutter_flux.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -14,7 +13,7 @@ class App extends StatefulWidget {
   AppState createState() => new AppState();
 }
 
-class AppState extends State<App>  with StoreWatcherMixin<App> {
+class AppState extends State<App>{
 
   ThemeData get theme {
     return new ThemeData(

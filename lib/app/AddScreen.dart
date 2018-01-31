@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import './main/BlueTab/BlueObject.dart';
+import 'package:flutter_app_demo/app/main/BlueTab/BlueObject.dart';
+import 'package:flutter_app_demo/flux/stores/BlueStore.dart';
+import 'package:flutter_app_demo/flux/actions/BlueActions.dart';
 class AddScreen extends StatefulWidget {
 
   @override
@@ -7,7 +9,7 @@ class AddScreen extends StatefulWidget {
     return new AddScreenState();
   }
 }
-class AddScreenState extends State<AddScreen> {
+class AddScreenState extends State<AddScreen>{
   bool _valueCheckBox;
   TextEditingController _textEditCtrl;
   @override
@@ -17,7 +19,8 @@ class AddScreenState extends State<AddScreen> {
   }
 
   void _submitButtonClick(){
-     BlueObject product = new BlueObject(_textEditCtrl.text, 'assets/person.png', _valueCheckBox);
+     BlueObject product = new BlueObject(_textEditCtrl.text, 'assets/images/person.png', _valueCheckBox);
+     addBlueObjectIntoListAction(product);
      Navigator.pop(context);
   }
 

@@ -97,12 +97,7 @@ bool isShow;
 
   Widget buildTabView(_Page page) {
     if(page.key == 0){
-      return new TabBlue(product:
-          [
-          new BlueObject('Eggs','assets/person.png',false),
-          new BlueObject('Flour','assets/person.png',false),
-          new BlueObject('Chocolate chips','assets/person.png',false),
-          ]);
+      return new TabBlue();
     }
     else {
       return new TabEco(label: page.label, labelColor: page.labelColor);
