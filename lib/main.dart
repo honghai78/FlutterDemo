@@ -6,13 +6,16 @@ library stocks;
 
 import 'package:flutter/material.dart';
 import 'routes/routes.dart';
+import 'package:flutter_flux/flutter_flux.dart';
 
 class App extends StatefulWidget {
+  App({Key key}) : super(key: key);
   @override
   AppState createState() => new AppState();
 }
 
-class AppState extends State<App> {
+class AppState extends State<App>  with StoreWatcherMixin<App> {
+
   ThemeData get theme {
     return new ThemeData(
       primarySwatch: Colors.blue,
@@ -43,6 +46,7 @@ class AppState extends State<App> {
       onGenerateRoute: _getRoute,
     );
   }
+
 }
 
 void main() {

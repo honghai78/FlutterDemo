@@ -1,22 +1,80 @@
 import 'package:flutter/material.dart';
+import './main/BlueTab/BlueObject.dart';
+class AddScreen extends StatefulWidget {
 
-class AddScreen extends StatelessWidget {
+  @override
+  AddScreenState createState(){
+    return new AddScreenState();
+  }
+}
+class AddScreenState extends State<AddScreen> {
+  bool _valueCheckBox;
+  TextEditingController _textEditCtrl;
+  @override
+  void initState() {
+    _valueCheckBox = false;
+    _textEditCtrl = new TextEditingController(text: '');
+  }
+
+  void _submitButtonClick(){
+     BlueObject product = new BlueObject(_textEditCtrl.text, 'assets/person.png', _valueCheckBox);
+     Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Add Screen'),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'this is add page',
-            ),
-          ],
+        appBar: new AppBar(
+          title: new Text('Add Screen'),
         ),
-      ),
+        body: new Container(
+          padding: new EdgeInsets.all(15.0),
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              new Container(
+                padding: new EdgeInsets.all(0.0),
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    new Text(
+                      'Enter Product Name:',
+                      overflow: TextOverflow.ellipsis,
+                      style: new TextStyle(fontWeight: FontWeight.bold),
+                    ), new TextField(autofocus: true, decoration: new  InputDecoration(
+                      prefixText: 'P-'
+                    ),
+                      controller: _textEditCtrl,
+                    ),
+                  ],
+                ),
+              ),
+              new Container(
+                padding: new EdgeInsets.only(left: 0.0, top: 10.0, bottom: 0.0, right: 0.0),
+                child: new Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    new Text(
+                      'Is Check?',
+                      overflow: TextOverflow.ellipsis,
+                      style: new TextStyle(fontWeight: FontWeight.bold),
+                    ), new Checkbox(value: _valueCheckBox, onChanged: (bool value){
+                        setState((){
+                          _valueCheckBox = value;
+                        });
+                    })
+                  ],
+                ),
+              ), new Center(
+                child:
+                  new Container(
+                    padding: new EdgeInsets.only(left: 0.0, top: 10.0, bottom: 0.0, right: 0.0),
+                    child: new RaisedButton(onPressed: _submitButtonClick, child: new Text('Submit'),),
+                  )
+              )
+            ],
+          ),
+        )
     );
   }
 }

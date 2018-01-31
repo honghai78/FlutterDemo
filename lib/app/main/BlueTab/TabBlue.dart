@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './BlueObject.dart';
 import './BlueItemList.dart';
+
 class TabBlue extends StatefulWidget {
   List<BlueObject> product;
   TabBlue({Key key, this.product}) :super(key: key);
@@ -10,7 +11,8 @@ class TabBlue extends StatefulWidget {
   }
 }
 
-class BlueListState extends State<TabBlue>{
+class BlueListState extends State<TabBlue>
+   {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

@@ -3,6 +3,7 @@ import '../../routes/routes.dart';
 import 'package:flutter_app_demo/app/main/BlueTab/TabBlue.dart';
 import 'package:flutter_app_demo/app/main/EcoTab/TabEco.dart';
 import './BlueTab/BlueObject.dart';
+import 'package:flutter_flux/flutter_flux.dart';
 const String _explanatoryText =
     "When the Scaffold's floating action button changes, the new button fades and "
     'turns into view. In this demo, changing tabs can cause the app to be rebuilt '
@@ -37,7 +38,7 @@ class MainScreen extends StatefulWidget {
   _TabsFabDemoState createState() => new _TabsFabDemoState();
 }
 
-class _TabsFabDemoState extends State<MainScreen> with SingleTickerProviderStateMixin {
+class _TabsFabDemoState extends State<MainScreen> with SingleTickerProviderStateMixin{
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   TabController _controller;
